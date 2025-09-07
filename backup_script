@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# Author: Vu The Anh
+# Created: 06/09/2025
+# Last Modified: 06/09/2025
+
+# Description:
+# Shell variable
+
+# Usage:
+# backup_script
+
+echo "Hello ${USER^}"
+echo "I will backup your home directory, $HOME"
+currentdir=$(pwd)
+echo "You are running this script from $currentdir"
+echo "Therefore, I will save the backup in $currentdir"
+tar -cf $currentdir/my_backup_"$(date +%d-%m-%Y_%H-%M-%S)".tar $HOME/Desktop/IT.txt 2>/dev/null
+echo "Backup Completed Successfully"
+
+exit 0
