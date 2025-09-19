@@ -39,3 +39,62 @@ SOME COMMON SHELL VARIABLES
 | HOSTNAME | The name of the current machine |
 | HOSTTYPE | The current machine CPU architecture |
 | PS1 | The terminal prompt string |
+
+# PARAMETER EXPANSION
+
+SYNTAX
+
+- Simple Syntax: $parameter
+- Advanced Syntax: ${parameter}
+
+DEFINITION
+
+Parameter expansion is used to retrieve the value stored in a parameter.
+
+PARAMETER EXPANSION TRICKS
+
+1 ${parameter^}
+
+Convert the first character of the parameter to uppercase
+
+2 ${parameter^^}
+
+Convert all characters of the parameter to uppercase
+
+3 ${parameter,}
+
+Convert the first character of the parameter to lowercase
+
+4 ${parameter,,}
+
+Convert all characters of the parameter to lowercase
+
+5 ${#parameter}
+
+Display how many characters the variable’s value contains
+
+6 ${parameter:offset:length}
+
+The shell will expand the value of the parameter starting at the character number defined by “offset” and expand up to a length of “length”
+
+Note: None of these alter the value stored in the parameter. They just change how it is displayed after the expansion
+
+# COMMAND SUBSTITUTION
+
+DEFINITION
+
+Command Substitution is used to directly reference the result of a command
+
+Syntax for command substitution
+
+$(command)
+
+# ARITHMETIC EXPANSION
+
+DEFINITION
+
+Arithmetic Expansion is used to perform mathematical calculations in your scripts.
+
+Syntax for Arithmetic Expansion
+
+$((expression))
