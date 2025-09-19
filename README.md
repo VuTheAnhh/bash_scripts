@@ -32,8 +32,9 @@ Note 2: Names of user-defined variables should be all lowercase
 
 SOME COMMON SHELL VARIABLES
 
-| HOME | Absolute path to the current user’s home directory |
+| COMMAND | MEANING |
 | --- | --- |
+| HOME | Absolute path to the current user’s home directory |
 | PATH | List of directories that the shell should search for executable files |
 | USER | The current user’s username |
 | HOSTNAME | The name of the current machine |
