@@ -20,7 +20,7 @@ Variables are parameters that you can change the value of
 
 - USER-DEFINED VARIABLES
 - SHELL VARIABLES ( -> BOURNE SHELL VARIABLES
-- BASH SHELL VARIABLES )
+- BASHH SHELL VARIABLES )
 
 SETTING THE VALUE OF A VARIABLE
 
@@ -32,9 +32,10 @@ Note 2: Names of user-defined variables should be all lowercase
 
 SOME COMMON SHELL VARIABLES
 
-| HOME     | Absolute path to the current user’s home directory                    |
-| PATH     | List of directories that the shell should search for executable files |
-| USER     | The current user’s username                                           |
-| HOSTNAME | The name of the current machine                                       |
-| HOSTTYPE | The current machine CPU architecture                                  |
-| PS1      | The terminal prompt string                                            |
+| HOME | Absolute path to the current user’s home directory |
+| --- | --- |
+| PATH | List of directories that the shell should search for executable files |
+| USER | The current user’s username |
+| HOSTNAME | The name of the current machine |
+| HOSTTYPE | The current machine CPU architecture |
+| PS1 | The terminal prompt string |
