@@ -10,7 +10,7 @@ There are 3 types of parameters
 - Positional parameters
 - Special parameters
 
-VARIABLES
+# VARIABLES
 
 DEFINITION
 
@@ -19,7 +19,7 @@ Variables are parameters that you can change the value of
 2 types of variables
 
 - USER-DEFINED VARIABLES
-- SHELL VARIABLES ( -> BOURNE SHELL VARIABLES; -> BASHH SHELL VARIABLES )
+- SHELL VARIABLES ( -> BOURNE SHELL VARIABLES; -> BASH SHELL VARIABLES )
 
 SETTING THE VALUE OF A VARIABLE
 
