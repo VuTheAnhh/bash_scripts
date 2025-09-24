@@ -98,3 +98,26 @@ Arithmetic Expansion is used to perform mathematical calculations in your script
 Syntax for Arithmetic Expansion
 
 $((expression))
+
+# ARITHMETIC EXPANSION
+
+**ARITHMETIC OPERATORS RANKED IN ORDER OF PRECEDENCE (HIGHEST PRECEDENCE FIRST):**
+
+| OPERATOR(S) | MEANING(S) | COMMENTS |
+| --- | --- | --- |
+| ( ) | Parentheses | Anything placed in parentheses is given the highest precedence and is always run first. |
+| \*\* | Exponentiation<br><br>2^^4 means 2 to the power of 4, which is 16 |     |
+| \*,/, and % | Multiplication. Division, and Modulo<br><br>Modulo calculates the remainder of a division | These have the same precedence |
+| \+ and - | Addition and substraction | These have the same precedence |
+
+Note: When two operators have the same precedence, the one furthest to the left gets performed first.
+
+# THE BC COMMAND
+
+Using the bc command
+
+echo “expression” | bc
+
+Using the scale variable to control the number decimal places shown
+
+echo “scale=value: expression” | bc
