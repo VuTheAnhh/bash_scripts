@@ -7,3 +7,128 @@ Shell expansions:
 Add to PATH:
 
 * export PATH="$PATH:/home/anhvt/Desktop/scripts"
+ Bước Xử Lý Command Line trong Bash Shell
+Bước 1: Tokenization (Phân tách thành token)
+----------------------------------------------------------
+Shell chia command thành các đơn vị riêng biệt gọi là token
+bash
+
+# Ví dụ command:
+ls -l /home/user/*.txt
+
+# Sau tokenization sẽ thành:
+# ["ls", "-l", "/home/user/*.txt"]
+
+Cách hoạt động:
+
+    Dùng khoảng trắng, tab, newline làm delimiter
+
+    Giữ nguyên các token trong dấu nháy
+
+    Nhận diện các toán tử như: ;, |, &, >, <
+
+bash
+
+echo "hello world" > file.txt
+# Token: ["echo", "hello world", ">", "file.txt"]
+
+Bước 2: Expansion (Mở rộng)
+
+Shell thay thế các ký tự đặc biệt bằng giá trị thực
+
+Các loại expansion:
+
+    Variable Expansion: $VAR → giá trị
+
+    Command Substitution: $(command) → output
+
+    Arithmetic Expansion: $((expression)) → kết quả
+
+    Brace Expansion: {a,b,c} → a b c
+
+    Pathname Expansion: *.txt → file1.txt file2.txt
+
+    Tilde Expansion: ~ → /home/user
+
+bash
+
+name="John"
+echo "Hello $name, today is $(date)"
+# Sau expansion: "Hello John, today is Thu Oct 26 10:00:00 UTC 2023"
+
+Bước 3: Quote Removal (Gỡ bỏ dấu nháy)
+
+Shell loại bỏ các dấu nháy nhưng giữ nguyên ý nghĩa
+bash
+
+echo "Hello $USER"
+# Sau quote removal: echo Hello john_doe
+# (nhưng $USER đã được expansion từ bước 2)
+
+# So sánh:
+echo "Hello $USER"    # Hello john_doe
+echo 'Hello $USER'    # Hello $USER (không expansion)
+
+Bước 4: Redirection (Chuyển hướng)
+
+Shell thiết lập input/output redirection
+bash
+
+ls > output.txt 2> error.txt
+# >: stdout redirect
+# 2>: stderr redirect
+# <: stdin redirect
+# |: pipe
+
+Bước 5: Execution (Thực thi)
+
+Shell thực thi command
+
+Phân loại command:
+
+    Built-in commands: thực thi trực tiếp trong shell
+
+    External commands: tìm trong PATH và thực thi
+
+    Functions: gọi hàm đã định nghĩa
+
+    Aliases: thay thế bằng command thực
+
+bash
+
+# Built-in: cd, echo, export
+# External: ls, grep, find
+# Function: myfunc() { echo "Hello"; }
+# Alias: alias ll='ls -l'
+
+Ví dụ Minh Họa Đầy Đủ
+bash
+
+# Command gốc:
+echo "Files: $(ls *.txt | wc -l)" > count.txt
+
+# Bước 1: Tokenization
+# ["echo", "Files: $(ls *.txt | wc -l)", ">", "count.txt"]
+
+# Bước 2: Expansion
+# $(ls *.txt | wc -l) được thực thi → "5"
+# "Files: $(ls *.txt | wc -l)" → "Files: 5"
+
+# Bước 3: Quote Removal
+# echo "Files: 5" > count.txt → echo Files: 5 > count.txt
+
+# Bước 4: Redirection
+# Thiết lập stdout trỏ đến file count.txt
+
+# Bước 5: Execution
+# Thực thi echo với argument "Files: 5"
+
+Lưu ý Quan Trọng
+
+    Thứ tự thực hiện: Các bước luôn theo trình tự này
+
+    Expansion order: Brace → Tilde → Parameter → Command → Arithmetic → Word splitting → Pathname
+
+    Quote ảnh hưởng: Dấu nháy ngăn expansion và word splitting
+
+Hiểu rõ 5 bước này giúp bạn viết script chính xác và debug hiệu quả hơn!
