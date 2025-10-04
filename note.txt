@@ -3,3 +3,7 @@ Shell expansions:
 * ${parameter}
 * $(command)
 * $((expression))
+
+Add to PATH:
+
+* export PATH="$PATH:/home/anhvt/Desktop/scripts"
